@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin-panel')
     ->name('admin.')
     ->namespace('App\Http\Controllers\Admin')
-    ->middleware(['admin'])
     ->group(function () {
 
     Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {

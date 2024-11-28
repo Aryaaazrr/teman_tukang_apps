@@ -14,7 +14,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->group('admin', [
             \Illuminate\Session\Middleware\StartSession::class,
             \App\Http\Middleware\ShareVariable::class,
-            \App\Http\Middleware\Admin\AuthMiddleware::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         ]);
 
@@ -32,7 +31,7 @@ return Application::configure(basePath: dirname(__DIR__))
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         ]);
-
+        
         $middleware->redirectGuestsTo('/login');
     })
     ->withExceptions(function (Exceptions $exceptions) {
