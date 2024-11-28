@@ -1,7 +1,7 @@
 <header class="fixed w-full z-10">
     <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-            <a href="#" class="flex items-center">
+            <a href="{{ route('home.index') }}" class="flex items-center">
                 <img src="{{ asset('static/website/image/logo_default.png') }}" class="h-6 mr-3 sm:h-9"
                     alt="Landwind Logo" />
                 <span
@@ -59,13 +59,13 @@
                         </ul>
 
                         <div class="p-2 text-sm font-medium text-gray-900 dark:text-white">
-                            <a href="#" title=""
+                            <a href="{{ route('logout') }}" title=""
                                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
                                 Sign Out </a>
                         </div>
                     @else
                         <div class="p-2 text-sm font-medium text-gray-900 dark:text-white">
-                            <a href="#" title=""
+                            <a href="{{ route('login') }}" title=""
                                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
                                 Sign In </a>
                         </div>
