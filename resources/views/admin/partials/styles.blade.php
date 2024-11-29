@@ -1,5 +1,5 @@
 {{-- Template --}}
-<link rel="canonical" href="https://https://demo.themesberg.com/landwind/" />
+{{-- <link rel="canonical" href="https://https://demo.themesberg.com/landwind/" /> --}}
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,7 @@
 
 {{-- script --}}
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/datepicker.min.js"></script>
 <script>
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
             '(prefers-color-scheme: dark)').matches)) {
