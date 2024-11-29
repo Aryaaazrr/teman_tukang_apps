@@ -11,14 +11,16 @@ Route::prefix('admin-panel')
     ->group(function () {
 
     Route::group(['prefix' => 'auth'], function () {
-        Route::middleware('guest')->group(function () {
+        Route::middleware(['guest'])->group(function () {
             Route::get('login', [LoginController::class, 'index'])->name('auth.login');
             Route::post('login', [LoginController::class, 'store'])->name('auth.login.process');
         });
         Route::get('logout', [LogoutController::class, 'index'])->middleware('auth')->name('auth.logout');
     });
 
-    Route::middleware(['auth', 'permission:admin panel access'])->group(function () {
+    Route::middleware(['auth', 'role:' . User::ROLE_SUPERADMIN . '|' . User::ROLE_ADMIN])->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+        // Route::resource('user', UserController::class);
     });
 });
