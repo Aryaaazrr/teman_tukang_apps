@@ -36,17 +36,13 @@ class RoleAndPermissionSeeder extends Seeder
 
         $customerRole = Role::where(['name' => 'customer'])->first();
         $customerPermissions = [
-            'customer address create',
-            'customer address read',
-            'customer address update',
-            'customer address delete',
-            'favorites services create',
-            'favorites services read',
-            'favorites services update',
-            'favorites services delete',
-            'transaction services create',
-            'transaction services read',
-            'transaction services update',
+            'profile create',
+            'profile read',
+            'profile update',
+            'profile delete',
+            'booking create',
+            'booking read',
+            'booking update',
             'testimonials services create',
         ];
 
@@ -72,10 +68,9 @@ class RoleAndPermissionSeeder extends Seeder
             'services create',
             'services update',
             'services delete',
-            'inboxes read',
-            'inboxes create',
-            'inboxes update',
-            'inboxes delete',
+            'transaction read',
+            'transaction edit',
+            'transaction update',
             'settings',
         ];
 
