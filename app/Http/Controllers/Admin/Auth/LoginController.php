@@ -30,7 +30,6 @@ class LoginController extends Controller
      */
     public function store(Request $request) : RedirectResponse
     {
-        dd($request->all());
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
