@@ -3,17 +3,23 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LogoutController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(Request $request) : RedirectResponse
     {
-        Auth::logout();
+        Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 

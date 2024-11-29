@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -30,11 +29,12 @@ class RoleAndPermissionSeeder extends Seeder
             Role::create(['name' => $role]);
         }
 
-        $adminAccessPermission = Permission::create(['name' => 'admin access']);
-        $adminRole = Role::whereName('admin')->first();
-        $adminAccessPermission->givePermissionTo($adminRole);
+        $adminAccessPermission = Permission::create(['name' => 'admin panel access']);
 
-        $customerRole = Role::whereName('customer')->first();
+        $adminRole = Role::where(['name' => 'admin'])->first();
+        $adminAccessPermission->assignRole($adminRole);
+
+        $customerRole = Role::where(['name' => 'customer'])->first();
         $customerPermissions = [
             'customer address create',
             'customer address read',
@@ -43,19 +43,17 @@ class RoleAndPermissionSeeder extends Seeder
             'favorites services create',
             'favorites services read',
             'favorites services update',
-            'favorites services dalete',
+            'favorites services delete',
             'transaction services create',
             'transaction services read',
             'transaction services update',
             'testimonials services create',
         ];
 
-        foreach ($customerPermissions as $name) {
-            $customerPermissions = Permission::create(['name' => $name]);
-            $customerRole->givePermissionTo($customerPermissions);
+        foreach ($customerPermissions as $permissionName) {
+            $permission = Permission::create(['name' => $permissionName]);
+            $customerRole->givePermissionTo($permission);
         }
-
-        $customerRole->givePermissionTo($adminAccessPermission);
 
         $otherPermissions = [
             'users read',
@@ -81,9 +79,12 @@ class RoleAndPermissionSeeder extends Seeder
             'settings',
         ];
 
-        foreach ($otherPermissions as $name) {
-            Permission::create(['name' => $name]);
+        foreach ($otherPermissions as $permissionName) {
+            $permission = Permission::create(['name' => $permissionName]);
         }
+
+        $superadminRole = Role::findByName('superadmin');
+        $superadminRole->givePermissionTo(Permission::all());
 
         Schema::enableForeignKeyConstraints();
     }

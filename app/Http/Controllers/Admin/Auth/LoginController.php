@@ -35,15 +35,16 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::guard('admin')->attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->intended('admin.dashboard.index');
+            
+            return redirect()->intended(route('admin.dashboard.index'));
         }
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+
     }
 
     /**

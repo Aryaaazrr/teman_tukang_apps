@@ -8,18 +8,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin-panel')
     ->name('admin.')
-    ->namespace('App\Http\Controllers\Admin')
     ->group(function () {
 
-    Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
-        Route::get('login', [LoginController::class, 'index'])->name('auth.login');
-        Route::post('login', [LoginController::class, 'store'])->name('auth.login.process');
-        Route::get('logout', [LogoutController::class, 'index'])->name('auth.logout');
+    Route::group(['prefix' => 'auth'], function () {
+        Route::middleware('guest')->group(function () {
+            Route::get('login', [LoginController::class, 'index'])->name('auth.login');
+            Route::post('login', [LoginController::class, 'store'])->name('auth.login.process');
+        });
+        Route::get('logout', [LogoutController::class, 'index'])->middleware('auth')->name('auth.logout');
     });
 
-    Route::middleware(['auth', 'role ' . User::ROLE_ADMIN])->group(function () {
-        Route::group(['namesapce' => 'Dashboard'], function () {
-            Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-        });
+    Route::middleware(['auth', 'permission:admin panel access'])->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     });
 });

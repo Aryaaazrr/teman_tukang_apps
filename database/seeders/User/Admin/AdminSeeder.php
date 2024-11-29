@@ -1,11 +1,11 @@
 <?php
 
-namespace Database\Seeders\Admin;
+namespace Database\Seeders\User\Admin;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
@@ -18,26 +18,24 @@ class AdminSeeder extends Seeder
         DB::table('users')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $superadmin = \App\Models\User::firstOrCreate([
+        $superadmin = User::firstOrCreate([
             'email' => 'superadmin@gmail.com',
         ], [
             'name' => 'Super Admin',
-            'password' => bcrypt('p4ssword'),
+            'password' => Hash::make('p4ssword'),
+            'email_verified_at' => now(),
         ]);
 
-        $superadmin->assignRole(
-            User::ROLE_SUPERADMIN,
-        );
+        $superadmin->assignRole(User::ROLE_SUPERADMIN);
 
-        $admin = \App\Models\User::firstOrCreate([
+        $admin = User::firstOrCreate([
             'email' => 'admin@gmail.com',
         ], [
             'name' => 'Admin',
-            'password' => bcrypt('p4ssword'),
+            'password' => Hash::make('p4ssword'),
+            'email_verified_at' => now(),
         ]);
 
-        $admin->assignRole(
-            User::ROLE_ADMIN
-        );
+        $admin->assignRole(User::ROLE_ADMIN);
     }
 }
