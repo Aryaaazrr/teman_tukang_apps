@@ -19,21 +19,25 @@ class AdminSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $superadmin = User::firstOrCreate([
+            'username' => 'superadmin',
             'email' => 'superadmin@gmail.com',
         ], [
             'name' => 'Super Admin',
             'password' => Hash::make('p4ssword'),
             'email_verified_at' => now(),
+            'phone' => fake('id')->phoneNumber(),
         ]);
 
         $superadmin->assignRole(User::ROLE_SUPERADMIN);
 
         $admin = User::firstOrCreate([
+            'username' => 'admin',
             'email' => 'admin@gmail.com',
         ], [
             'name' => 'Admin',
             'password' => Hash::make('p4ssword'),
             'email_verified_at' => now(),
+            'phone' => fake('id')->phoneNumber(),
         ]);
 
         $admin->assignRole(User::ROLE_ADMIN);

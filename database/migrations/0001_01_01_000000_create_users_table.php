@@ -14,9 +14,26 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('phone');
+            $table->string('address')->nullable();
+            $table->string('address_notes')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
+        });
+
+        Schema::create('users_detail', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('wa_number')->unique();
+            $table->string('image')->nullable();
+            $table->enum('gender', ['male', 'female']);
+            $table->string('passport_number')->nullable();
+            $table->string('passport_holder_name')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -43,6 +60,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('users_detail');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
