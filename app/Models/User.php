@@ -61,4 +61,15 @@ class User extends Authenticatable
     function detail(): HasOne {
         return $this->hasOne(UserDetail::class);
     }
+
+    public function getProfileImageAttribute(): string
+    {
+        return $this->detail && $this->detail->image
+            ? asset($this->detail->image)
+            : asset('static/admin/image/default.png');
+    }
+
+    public function service() {
+        return $this->hasMany(Service::class, 'user_id');
+    }
 }
