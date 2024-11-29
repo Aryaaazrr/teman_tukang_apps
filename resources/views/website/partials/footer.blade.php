@@ -1,5 +1,5 @@
   <!-- End block -->
-  <footer class="bg-white dark:bg-gray-800">
+  <footer class="bg-white border-y-2 border-gray-50 dark:border-gray-900 dark:bg-gray-800">
       <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
           <div class="grid grid-cols-2 gap-8 md:grid-cols-3 text-center">
               <div>
