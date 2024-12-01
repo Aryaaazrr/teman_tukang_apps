@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\LogoutController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -12,13 +13,13 @@ Route::prefix('admin-panel')
 
     Route::group(['prefix' => 'auth'], function () {
         Route::middleware(['guest'])->group(function () {
-            Route::get('login', [LoginController::class, 'index'])->name('auth.login');
-            Route::post('login', [LoginController::class, 'store'])->name('auth.login.process');
+            Route::get('login', [AuthenticatedSessionController::class, 'index'])->name('auth.login');
+            Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('auth.login.process');
         });
-        Route::get('logout', [LogoutController::class, 'index'])->middleware('auth')->name('auth.logout');
+        Route::get('logout', [AuthenticatedSessionController::class, 'index'])->middleware('auth')->name('auth.logout');
     });
 
-    Route::middleware(['auth', 'role:' . User::ROLE_SUPERADMIN . '|' . User::ROLE_ADMIN])->group(function () {
+    Route::middleware(['auth', 'permission:admin panel access'])->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
         // Route::resource('user', UserController::class);

@@ -12,6 +12,14 @@ use Illuminate\View\View;
 class AuthenticatedSessionController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return view('admin.auth.login');
+    }
+
+    /**
      * Display the login view.
      */
     public function create(): View
@@ -28,7 +36,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        $user = Auth::user();
+        
+        if ($user->hasRole('customer')) {
+            return redirect()->intended(route('profile.edit', absolute: false));
+        } else {
+            return redirect()->intended(route('admin.dashboard.index', absolute: false));
+        }
+
     }
 
     /**
