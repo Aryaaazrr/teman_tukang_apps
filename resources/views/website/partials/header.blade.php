@@ -5,10 +5,10 @@
                 <img src="{{ asset('static/website/image/logo_default.png') }}" class="h-6 mr-3 sm:h-9"
                     alt="Landwind Logo" />
                 <span
-                    class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ __('TemanTukang') }}</span>
+                    class="self-center hidden min-[425px]:block text-base md:text-xl font-semibold whitespace-nowrap dark:text-white">{{ __('TemanTukang') }}</span>
             </a>
             <div class="flex items-center lg:order-2">
-                <div class="mr-4 sm:inline-block">
+                <div class="sm:inline-block">
                     <button id="theme-toggle" type="button"
                         class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -31,7 +31,7 @@
                         <path stroke="currentColor" stroke-width="2"
                             d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                     </svg>
-                    Account
+                    {{ Auth::user() ? Auth::user()->username : 'Guest' }}
                     <svg class="w-4 h-4 text-gray-900 dark:text-white ms-1" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                         viewBox="0 0 24 24">
@@ -44,24 +44,16 @@
                     class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow dark:divide-gray-600 dark:bg-gray-700">
                     @if (Auth::user())
                         <ul class="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
-                            <li><a href="#" title=""
+                            <li><a href="{{ route('profile.edit') }}" title=""
                                     class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
                                     My Account </a></li>
-                            <li><a href="#" title=""
-                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    My Orders </a></li>
-                            <li><a href="#" title=""
-                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    Favourites </a></li>
-                            <li><a href="#" title=""
-                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    Settings </a></li>
                         </ul>
 
                         <div class="p-2 text-sm font-medium text-gray-900 dark:text-white">
-                            <a href="{{ route('logout') }}" title=""
+                            <a href="{{ route('logout') }}"
                                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                Sign Out </a>
+                                Sign Out
+                             </a>
                         </div>
                     @else
                         <div class="p-2 text-sm font-medium text-gray-900 dark:text-white">
