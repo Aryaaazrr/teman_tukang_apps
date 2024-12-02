@@ -8,7 +8,7 @@
                 <div class="grid gap-4 sm:grid-cols-5 sm:gap-6">
 
                     <img class="rounded-full w-32 h-32 bg-gray-300 object-cover dark:bg-gray-700"
-                        src="{{ $detail->image ? asset('storage/' . $detail->image) : asset('static/admin/image/default.png') }}"
+                        src="{{ $detail && isset($detail->image) ? asset('storage/' . $detail->image) : asset('static/admin/image/default.png') }}"
                         alt="image description" width="100" height="100" id="img-container">
 
                     <div class="col-span-4">
