@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Auth\ThirdParty\Google;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Exception;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -20,33 +22,47 @@ class GoogleLoginController extends Controller
 
     public function handleGoogleCallback(): RedirectResponse
     {
-        $user = Socialite::driver('google')->user();
+        try {
+            $socialUser = Socialite::driver('google')->user();
+           
+            $existingGoogleUser = User::where('google_id', $socialUser->id)->first();
 
-        $existingUser = User::where('google_id', $user->id)->first();
+            if ($existingGoogleUser) {
+                Auth::login($existingGoogleUser);
+            } else {
+                $existingEmailUser = User::where('email', $socialUser->email)->first();
 
-        if ($existingUser) {
-            auth()->login($existingUser, true);
-        } else {
-            $username = strtolower(str_replace(' ', '', $user->name));
-            $randomNumber = rand(100, 999);
-            $username .= $randomNumber;
+                if ($existingEmailUser) {
+                    $existingEmailUser->google_id = $socialUser->id;
+                    $existingEmailUser->save();
 
-            $newUser = new User();
-            $newUser->username = $username;
-            $newUser->name = $user->name;
-            $newUser->email = $user->email;
-            $newUser->google_id = $user->id;
-            $newUser->password = Hash::make(request(Str::random()));
-            $newUser->email_verified_at = now();
-            $newUser->save();
+                    Auth::login($existingEmailUser);
+                } else {
+                    $username = $socialUser->nickname ?: strtolower(str_replace(' ', '', $socialUser->name)) . rand(100, 999);
 
-            $newUser->assignRole('customer');
+                    $newUser = User::create([
+                        'username' => $username,
+                        'name' => $socialUser->name,
+                        'email' => $socialUser->email,
+                        'google_id' => $socialUser->id,
+                        'password' => Hash::make(Str::random(16)),
+                    ]);
 
-            event(new Registered($user));
+                    event(new Registered($newUser));
 
-            Auth::login($user);
+                    $newUser->assignRole('customer');
+
+                    Auth::login($newUser);
+                }
+            }
+
+            return redirect()->intended('/profile');
+        } catch (Exception $e) {
+            Log::error('Google Login Error', ['message' => $e->getMessage()]);
+
+            return redirect()->route('login')->with([
+                'error' => 'Login with Google failed. Please try again.',
+            ]);
         }
-
-        return redirect()->intended('/profile');
     }
 }

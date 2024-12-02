@@ -48,7 +48,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login')->with([
-            'status' => 'Access denied. User not authorized.',
+            'error' => 'Access denied. User not authorized.',
         ]);
     }
 
@@ -66,7 +66,7 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerateToken();
 
             return redirect()->route('login')->with([
-                'status' => 'Access denied. User not authorized.',
+                'error' => 'Access denied. User not authorized.',
             ]);
         }
 
