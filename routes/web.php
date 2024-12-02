@@ -10,6 +10,7 @@ use App\Http\Controllers\Website\Features\FeaturesController;
 use App\Http\Controllers\Website\Home\HomeController;
 use App\Http\Controllers\Website\Profile\ProfileController;
 use App\Http\Controllers\Website\Services\ServicesController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -24,7 +25,7 @@ Route::get('faq', [FAQController::class, 'index'])->name('faq.index');
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:'.User::ROLE_CUSTOMER])->group(function () {
     Route::get('booking', [BookingController::class, 'index'])->name('booking.index');
 
     Route::get('document', [DocumentController::class, 'index'])->name('document.index');
