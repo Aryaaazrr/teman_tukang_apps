@@ -19,7 +19,7 @@
 
                 <!-- Session Status -->
                 @if (session('error'))
-                    <x-auth-session-error class="mb-4" :status="session('status')" />
+                    <x-auth-session-error class="mb-4" :status="session('error')" />
                 @else
                     <x-auth-session-status class="mb-4" :status="session('status')" />
                 @endif
@@ -59,7 +59,7 @@
                             {{ __('Sign In') }}
                         </x-primary-button>
 
-                        <a href="{{ route('auth.google') }}" class="flex">
+                        <a href="{{ route('auth.google') }}" class="w-full">
                             <x-secondary-button class="my-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                     class="me-3 w-5 h-5">

@@ -1,6 +1,6 @@
 @extends('website.layout')
 
-@section('title', 'Verify Email')
+@section('title', 'Forgot Password')
 
 @section('content')
     <section class="antialiased">
@@ -12,8 +12,7 @@
                     </a>
                     <div class="flex flex-col justify-center items-center gap-2 w-10/12 my-2">
                         <h1 class="text-2xl font-bold text-black dark:text-white">Forgot Password</h1>
-                        <p class="text-base text-center font-medium text-black dark:text-white">Enter your email to
-                            send link for reset your password</p>
+                        <p class="text-base text-center font-medium text-black dark:text-white">Enter your email address to receive a link to reset your password.</p>
                     </div>
                 </div>
                 <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">

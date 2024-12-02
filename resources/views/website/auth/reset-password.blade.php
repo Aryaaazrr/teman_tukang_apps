@@ -1,6 +1,6 @@
 @extends('website.layout')
 
-@section('title', 'Verify Email')
+@section('title', 'Reset Password')
 
 @section('content')
     <section class="antialiased">
@@ -11,9 +11,8 @@
                         <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                     </a>
                     <div class="flex flex-col justify-center items-center gap-2 w-10/12 my-2">
-                        <h1 class="text-2xl font-bold text-black dark:text-white">Forgot Password</h1>
-                        <p class="text-base text-center font-medium text-black dark:text-white">Enter your email to
-                            send link for reset your password</p>
+                        <h1 class="text-2xl font-bold text-black dark:text-white">Reset Password</h1>
+                        <p class="text-base text-center font-medium text-black dark:text-white">Create a new password to regain access to your account.</p>
                     </div>
                 </div>
                 <form method="POST" action="{{ route('password.store') }}">

@@ -11,12 +11,11 @@
                         <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                     </a>
                     <div class="flex flex-col justify-center items-center gap-2 w-10/12 my-2">
-                        <h1 class="text-2xl font-bold text-black dark:text-white">Create Account</h1>
-                        <p class="text-base text-center font-medium text-black dark:text-white">Enter your account to
-                            register for your new account</p>
+                        <h1 class="text-2xl font-bold text-black dark:text-white">Email Verification</h1>
+                        <p class="text-base text-center font-medium text-black dark:text-white">Please check your email for a verification link to complete your account.</p>
                     </div>
                 </div>
-                
+
                 <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
                     {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
                 </div>
