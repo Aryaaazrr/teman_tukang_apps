@@ -52,6 +52,28 @@ class AuthenticatedSessionController extends Controller
         ]);
     }
 
+    public function storeAdmin(LoginRequest $request): RedirectResponse
+    {
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        $user = Auth::user();
+
+        if ($user && $user->hasRole('customer')) {
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return redirect()->route('login')->with([
+                'status' => 'Access denied. User not authorized.',
+            ]);
+        }
+
+        return redirect()->intended(route('admin.dashboard.index'))
+            ->with('status', 'Welcome back, Admin!');
+    }
+
     /**
      * Destroy an authenticated session.
      */

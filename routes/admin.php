@@ -14,7 +14,7 @@ Route::prefix('admin-panel')
     Route::group(['prefix' => 'auth'], function () {
         Route::middleware(['guest'])->group(function () {
             Route::get('login', [AuthenticatedSessionController::class, 'index'])->name('auth.login');
-            Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('auth.login.process');
+            Route::post('login', [AuthenticatedSessionController::class, 'storeAdmin'])->name('auth.login.process');
         });
         Route::post('logout', [AuthenticatedSessionController::class, 'index'])->middleware('auth')->name('auth.logout');
     });
