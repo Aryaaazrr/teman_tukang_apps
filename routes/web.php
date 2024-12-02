@@ -31,10 +31,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('favorite', [FavoriteController::class, 'index'])->name('favorite.index');
 
-    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.index');
-    Route::get('profile/edit-photo', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', [ProfileController::class, 'index'])->name('index');
+        Route::prefix('edit')->name('edit.')->group(function () {
+            Route::get('/photo', [ProfileController::class, 'editPhoto'])->name('photo');
+            Route::get('/data', [ProfileController::class, 'editAccount'])->name('data');
+            Route::get('/alamat', [ProfileController::class, 'editAddress'])->name('alamat');
+        });
+        // Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+        // Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
 });
 
 require __DIR__.'/auth.php';
