@@ -13,7 +13,7 @@ class DocumentController extends Controller
      */
     public function index(Request $request): View
     {
-        return view('website.base.layout', [
+        return view('website.base.document.index', [
             'user' => $request->user(),
         ]);
     }

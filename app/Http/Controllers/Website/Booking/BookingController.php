@@ -13,7 +13,7 @@ class BookingController extends Controller
      */
     public function index(Request $request): View
     {
-        return view('website.base.layout', [
+        return view('website.base.booking.index', [
             'user' => $request->user(),
         ]);
     }

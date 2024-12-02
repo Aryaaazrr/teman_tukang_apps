@@ -37,13 +37,19 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user = Auth::user();
-        
-        if ($user->hasRole('customer')) {
-            return redirect()->intended(route('profile.edit', absolute: false));
-        } else {
-            return redirect()->intended(route('admin.dashboard.index', absolute: false));
+
+        if ($user && $user->hasRole('customer')) {
+            return redirect()->intended(route('profile.index'))
+                ->with('status', 'Welcome back, Customer!');
         }
 
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login')->with([
+            'status' => 'Access denied. User not authorized.',
+        ]);
     }
 
     /**

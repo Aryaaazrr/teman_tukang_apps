@@ -13,7 +13,7 @@ class FavoriteController extends Controller
      */
     public function index(Request $request): View
     {
-        return view('website.base.layout', [
+        return view('website.base.favorite.index', [
             'user' => $request->user(),
         ]);
     }
