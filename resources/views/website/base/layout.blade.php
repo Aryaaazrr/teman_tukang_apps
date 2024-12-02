@@ -24,7 +24,7 @@
                         class="z-10 hidden text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                         <ul class="py-2" aria-labelledby="dropdownButton">
                             <li>
-                                <a href="{{ route('profile.edit') }}"
+                                <a href="{{ route('profile.edit.photo') }}"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit
                                     Photo</a>
                             </li>
@@ -39,17 +39,22 @@
                 </div>
             </div>
 
-            @if (Route::is('profile.index'))
-                @include('website.base.profile.index')
-            @elseif (Route::is('profile.edit'))
-                @include('website.base.profile.edit')
-            @elseif (Route::is('booking.index'))
-                @include('website.base.booking.index')
-            @elseif (Route::is('document.index'))
-                @include('website.base.document.index')
-            @elseif (Route::is('favorite.index'))
-                @include('website.base.favorite.index')
-            @endif
+            <div
+                class="hidden lg:block w-full h-fit p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:col-span-2 lg:row-span-2">
+                @include('website.base.components.breadcrumb')
+
+                @yield('additional-content')
+                {{-- @if (Route::is('profile.index'))
+                @elseif (Route::is('profile.edit'))
+                    @yield('website.base.profile.edit.edit-photo')
+                @elseif (Route::is('booking.index'))
+                    @yield('website.base.booking.index')
+                @elseif (Route::is('document.index'))
+                    @yield('website.base.document.index')
+                @elseif (Route::is('favorite.index'))
+                    @yield('website.base.favorite.index')
+                @endif --}}
+            </div>
 
             <div
                 class="w-full lg:max-w-sm lg:h-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
