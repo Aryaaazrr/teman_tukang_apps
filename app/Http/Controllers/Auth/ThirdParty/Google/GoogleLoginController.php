@@ -24,7 +24,7 @@ class GoogleLoginController extends Controller
     {
         try {
             $socialUser = Socialite::driver('google')->user();
-           
+
             $existingGoogleUser = User::where('google_id', $socialUser->id)->first();
 
             if ($existingGoogleUser) {
@@ -61,7 +61,7 @@ class GoogleLoginController extends Controller
             Log::error('Google Login Error', ['message' => $e->getMessage()]);
 
             return redirect()->route('login')->with([
-                'error' => 'Login with Google failed. Please try again.',
+                'error' => 'Login with Google failed. Please refresh and try again.',
             ]);
         }
     }

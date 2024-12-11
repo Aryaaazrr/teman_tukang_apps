@@ -5,7 +5,7 @@
                 <img src="{{ asset('static/website/image/logo_default.png') }}" class="h-6 mr-3 sm:h-9"
                     alt="Landwind Logo" />
                 <span
-                    class="self-center hidden min-[425px]:block text-base md:text-xl font-semibold whitespace-nowrap dark:text-white">{{ __('TemanTukang') }}</span>
+                    class="self-center hidden md:block text-base md:text-xl font-semibold whitespace-nowrap dark:text-white">{{ __('TemanTukang') }}</span>
             </a>
             <div class="flex items-center lg:order-2">
                 <div class="sm:inline-block">

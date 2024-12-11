@@ -4,10 +4,10 @@
 
 @section('content')
 
-    <section class="bg-gray-50 pt-24 dark:bg-gray-900">
+    <section class="bg-gray-50 pt-24 dark:bg-gray-900 ">
         <div class="grid max-w-screen-xl px-4 pb-8 mx-auto gap-8 lg:grid-cols-3">
             <div
-                class="w-full lg:max-w-sm lg:max-h-[300px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                class="w-full lg:max-w-sm lg:max-h-[300px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 @if (Route::is('profile.edit.index', 'profile.edit.photo', 'profile.edit.data', 'profile.edit.alamat')) hidden md:block @endif">
                 <div class="flex justify-end px-4 pt-4">
                     <button id="dropdownButton" data-dropdown-toggle="dropdown"
                         class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
@@ -40,7 +40,8 @@
             </div>
 
             <div
-                class="hidden lg:block w-full h-fit p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:col-span-2 lg:row-span-2">
+                class="lg:block w-full h-fit p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:col-span-2 lg:row-span-2 @if (Route::is('profile.edit.index', 'profile.edit.photo', 'profile.edit.data', 'profile.edit.alamat')) block @else hidden @endif">
+
                 @include('website.base.components.breadcrumb')
 
                 @yield('additional-content')
@@ -57,10 +58,10 @@
             </div>
 
             <div
-                class="w-full lg:max-w-sm lg:h-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+                class="w-full lg:max-w-sm lg:h-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700 @if (Route::is('profile.edit.index', 'profile.edit.photo', 'profile.edit.data', 'profile.edit.alamat')) hidden md:block @endif">
                 <ul class="my-2 space-y-3">
                     <li>
-                        <a href="{{ route('profile.index') }}"
+                        <a href="{{ route('profile.edit.index') }}"
                             class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-800 dark:hover:bg-gray-600 dark:text-white">
                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 aria-hidden="true">

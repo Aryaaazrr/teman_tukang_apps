@@ -7,7 +7,7 @@
         <div class="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
             <!-- Main widget -->
             <div
-                class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-neutral-700 sm:p-6 dark:bg-neutral-900">
                 <div class="flex items-center justify-between mb-4">
                     <div class="flex-shrink-0">
                         <span class="text-xl font-bold leading-none text-gray-900 sm:text-2xl dark:text-white">$45,385</span>
@@ -23,7 +23,7 @@
                         </svg>
                     </div>
                 </div>
-                <div id="main-chart"></div>
+
                 <!-- Card Footer -->
                 <div
                     class="flex items-center justify-between pt-3 mt-4 border-t border-gray-200 sm:pt-6 dark:border-gray-700">
@@ -37,7 +37,7 @@
                                 </path>
                             </svg></button>
                         <!-- Dropdown menu -->
-                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-neutral-900 dark:divide-neutral-800"
                             id="weekly-sales-dropdown">
                             <div class="px-4 py-3" role="none">
                                 <p class="text-sm font-medium text-gray-900 truncate dark:text-white" role="none">
@@ -90,10 +90,13 @@
                         </a>
                     </div>
                 </div>
+
+                <div id="hs-multiple-bar-charts"></div>
             </div>
+
             <!--Tabs widget -->
             <div
-                class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-neutral-700 sm:p-6 dark:bg-neutral-900">
                 <h3 class="flex items-center mb-4 text-lg font-semibold text-gray-900 dark:text-white">Statistics this month
                     <button data-popover-target="popover-description" data-popover-placement="bottom-end"
                         type="button"><svg class="w-4 h-4 ml-2 text-gray-400 hover:text-gray-500" aria-hidden="true"
@@ -464,7 +467,7 @@
         </div>
         <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
             <div
-                class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-neutral-700 sm:p-6 dark:bg-neutral-900">
                 <div class="w-full">
                     <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">New products</h3>
                     <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">2,340</span>
@@ -484,7 +487,7 @@
                 <div class="w-full" id="new-products-chart"></div>
             </div>
             <div
-                class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-neutral-700 sm:p-6 dark:bg-neutral-900">
                 <div class="w-full">
                     <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Users</h3>
                     <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">2,340</span>
@@ -504,30 +507,30 @@
                 <div class="w-full" id="week-signups-chart"></div>
             </div>
             <div
-                class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-neutral-700 sm:p-6 dark:bg-neutral-900">
                 <div class="w-full">
                     <h3 class="mb-2 text-base font-normal text-gray-500 dark:text-gray-400">Audience by age</h3>
                     <div class="flex items-center mb-2">
                         <div class="w-16 text-sm font-medium dark:text-white">50+</div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-neutral-700">
                             <div class="bg-primary-600 h-2.5 rounded-full dark:bg-primary-500" style="width: 18%"></div>
                         </div>
                     </div>
                     <div class="flex items-center mb-2">
                         <div class="w-16 text-sm font-medium dark:text-white">40+</div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-neutral-700">
                             <div class="bg-primary-600 h-2.5 rounded-full dark:bg-primary-500" style="width: 15%"></div>
                         </div>
                     </div>
                     <div class="flex items-center mb-2">
                         <div class="w-16 text-sm font-medium dark:text-white">30+</div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-neutral-700">
                             <div class="bg-primary-600 h-2.5 rounded-full dark:bg-primary-500" style="width: 60%"></div>
                         </div>
                     </div>
                     <div class="flex items-center mb-2">
                         <div class="w-16 text-sm font-medium dark:text-white">20+</div>
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-neutral-700">
                             <div class="bg-primary-600 h-2.5 rounded-full dark:bg-primary-500" style="width: 30%"></div>
                         </div>
                     </div>
@@ -537,7 +540,7 @@
         </div>
         <div class="grid grid-cols-1 my-4 xl:grid-cols-2 xl:gap-4">
             <div
-                class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
+                class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-neutral-700 dark:bg-neutral-900 xl:mb-0">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Smart chat</h3>
                     <a href="#"
@@ -554,7 +557,8 @@
                                     class="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white">
                                     <img class="w-6 h-6 mr-2 rounded-full"
                                         src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"alt="Michael Gough">Michael
-                                    Gough</p>
+                                    Gough
+                                </p>
                                 <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                                         title="February 8th, 2022"> 01/03/2023 4:15 PM</time></p>
                             </div>
@@ -614,7 +618,8 @@
                                     class="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white">
                                     <img class="w-6 h-6 mr-2 rounded-full"
                                         src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-                                        alt="Bonnie avatar">Bonnie Green</p>
+                                        alt="Bonnie avatar">Bonnie Green
+                                </p>
                                 <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                                         title="February 8th, 2022"> 01/03/2023 4:15 PM</time></p>
                             </div>
@@ -753,7 +758,8 @@
                                     class="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white">
                                     <img class="w-6 h-6 mr-2 rounded-full"
                                         src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"alt="Jese avatar">Jese
-                                    Leos</p>
+                                    Leos
+                                </p>
                                 <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                                         title="February 8th, 2022"> 01/03/2023 4:15 PM</time></p>
                             </div>
@@ -884,7 +890,8 @@
                                     class="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white">
                                     <img class="w-6 h-6 mr-2 rounded-full"
                                         src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"alt="Joseph avatar">Joseph
-                                    McFallen</p>
+                                    McFallen
+                                </p>
                                 <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                                         title="February 8th, 2022"> 01/03/2023 4:15 PM</time></p>
                             </div>
@@ -932,7 +939,8 @@
                                     class="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white">
                                     <img class="w-6 h-6 mr-2 rounded-full"
                                         src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"alt="Jese avatar">Jese
-                                    Leos</p>
+                                    Leos
+                                </p>
                                 <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                                         title="February 8th, 2022"> 01/03/2023 4:15 PM</time></p>
                             </div>
@@ -1052,7 +1060,7 @@
             <!-- Right Content -->
             <div class="grid gap-4">
                 <div
-                    class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                    class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-neutral-700 sm:p-6 dark:bg-neutral-900">
                     <div class="items-center justify-between pb-4 border-b border-gray-200 sm:flex dark:border-gray-700">
                         <div class="w-full mb-4 sm:mb-0">
                             <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Sales by category</h3>
@@ -1086,7 +1094,7 @@
                                         </svg>
                                     </div>
                                     <input name="start" type="text"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5  dark:bg-neutral-700 dark:border-neutral-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder="From">
                                 </div>
                                 <div class="relative">
@@ -1102,7 +1110,7 @@
                                         </svg>
                                     </div>
                                     <input name="end" type="text"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5  dark:bg-neutral-700 dark:border-neutral-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder="To">
                                 </div>
                             </div>
@@ -2224,4 +2232,227 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('additional-scripts')
+    <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            (function() {
+                buildChart('#hs-multiple-bar-charts', (mode) => ({
+                    chart: {
+                        height: 450,
+                        type: 'area',
+                        toolbar: {
+                            show: false
+                        },
+                        zoom: {
+                            enabled: false
+                        }
+                    },
+                    series: [{
+                        name: 'Sales',
+                        data: [180, 151, 160, 338, 188, 510, 140, 452, 188, 280, 560, 770]
+                    }],
+                    legend: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        width: 6
+                    },
+                    grid: {
+                        strokeDashArray: 2
+                    },
+                    fill: {
+                        type: 'gradient',
+                        gradient: {
+                            type: 'vertical',
+                            shadeIntensity: 1,
+                            opacityFrom: 0.1,
+                            opacityTo: 0.8
+                        }
+                    },
+                    xaxis: {
+                        type: 'category',
+                        tickPlacement: 'on',
+                        categories: [
+                            '25 January 2023',
+                            '26 January 2023',
+                            '27 January 2023',
+                            '28 January 2023',
+                            '29 January 2023',
+                            '30 January 2023',
+                            '31 January 2023',
+                            '1 February 2023',
+                            '2 February 2023',
+                            '3 February 2023',
+                            '4 February 2023',
+                            '5 February 2023'
+                        ],
+                        axisBorder: {
+                            show: false
+                        },
+                        axisTicks: {
+                            show: false
+                        },
+                        crosshairs: {
+                            stroke: {
+                                dashArray: 0
+                            },
+                            dropShadow: {
+                                show: false
+                            }
+                        },
+                        tooltip: {
+                            enabled: false
+                        },
+                        labels: {
+                            style: {
+                                colors: '#9ca3af',
+                                fontSize: '13px',
+                                fontFamily: 'Inter, ui-sans-serif',
+                                fontWeight: 400
+                            },
+                            formatter: (title) => {
+                                let t = title;
+
+                                if (t) {
+                                    const newT = t.split(' ');
+                                    t = `${newT[0]} ${newT[1].slice(0, 3)}`;
+                                }
+
+                                return t;
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            align: 'left',
+                            minWidth: 0,
+                            maxWidth: 140,
+                            style: {
+                                colors: '#9ca3af',
+                                fontSize: '13px',
+                                fontFamily: 'Inter, ui-sans-serif',
+                                fontWeight: 400
+                            },
+                            formatter: (value) => value >= 1000 ? `${value / 1000}k` : value
+                        }
+                    },
+                    tooltip: {
+                        x: {
+                            format: 'MMMM yyyy'
+                        },
+                        y: {
+                            formatter: (value) => `${value >= 1000 ? `${value / 1000}k` : value}`
+                        },
+                        custom: function(props) {
+                            const {
+                                categories
+                            } = props.ctx.opts.xaxis;
+                            const {
+                                dataPointIndex
+                            } = props;
+                            const title = categories[dataPointIndex].split(' ');
+                            const newTitle = `${title[0]} ${title[1]}`;
+
+                            return buildTooltip(props, {
+                                title: newTitle,
+                                mode,
+                                valuePrefix: '',
+                                hasTextLabel: true,
+                                markerExtClasses: '!rounded-sm',
+                                wrapperExtClasses: 'min-w-28'
+                            });
+                        }
+                    },
+                    responsive: [{
+                        breakpoint: 568,
+                        options: {
+                            chart: {
+                                height: 350
+                            },
+                            labels: {
+                                style: {
+                                    colors: '#9ca3af',
+                                    fontSize: '11px',
+                                    fontFamily: 'Inter, ui-sans-serif',
+                                    fontWeight: 400
+                                },
+                                offsetX: -2,
+                                formatter: (title) => title.slice(0, 3)
+                            },
+                            yaxis: {
+                                labels: {
+                                    align: 'left',
+                                    minWidth: 0,
+                                    maxWidth: 140,
+                                    style: {
+                                        colors: '#9ca3af',
+                                        fontSize: '11px',
+                                        fontFamily: 'Inter, ui-sans-serif',
+                                        fontWeight: 400
+                                    },
+                                    formatter: (value) => value >= 1000 ?
+                                        `${value / 1000}k` : value
+                                }
+                            },
+                        },
+                    }]
+                }), {
+                    colors: ['#eab308', '#9333ea'],
+                    fill: {
+                        gradient: {
+                            stops: [0, 90, 100]
+                        }
+                    },
+                    xaxis: {
+                        labels: {
+                            style: {
+                                colors: '#9ca3af'
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: '#9ca3af'
+                            }
+                        }
+                    },
+                    grid: {
+                        borderColor: '#e5e7eb'
+                    }
+                }, {
+                    colors: ['#eab308', '#a855f7'],
+                    fill: {
+                        gradient: {
+                            stops: [100, 90, 0]
+                        }
+                    },
+                    xaxis: {
+                        labels: {
+                            style: {
+                                colors: '#a3a3a3',
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: '#a3a3a3'
+                            }
+                        }
+                    },
+                    grid: {
+                        borderColor: '#404040'
+                    }
+                });
+            })();
+        });
+    </script>
 @endsection

@@ -34,7 +34,9 @@ Route::middleware(['auth', 'verified', 'role:'.User::ROLE_CUSTOMER])->group(func
 
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('index');
+
         Route::prefix('edit')->name('edit.')->group(function () {
+            Route::get('/', [ProfileController::class, 'index'])->name('index');
             Route::get('/photo', [ProfileController::class, 'editPhoto'])->name('photo');
             Route::get('/data', [ProfileController::class, 'editAccount'])->name('data');
             Route::get('/alamat', [ProfileController::class, 'editAddress'])->name('alamat');
